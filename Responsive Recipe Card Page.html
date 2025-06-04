@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)file:///C:/Users/PANCHAKSHARI/OneDrive/Desktop/responcive%20recipe%20card.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Responsive Recipe Card Page</title>
+<style>
+  :root {
+    --primary-color: #e76f51;
+    --secondary-color: #264653;
+    --accent-color: #2a9d8f;
+    --background-color: #f4f1de;
+    --card-bg: white;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition-duration: 0.3s;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    line-height: 1.6;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 900;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 2rem auto 4rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .recipe-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+  }
+
+  .recipe-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    transition: transform var(--transition-duration);
+  }
+
+  .recipe-card:hover .recipe-image {
+    transform: scale(1.05);
+  }
+
+  .recipe-content {
+    padding: 1.25rem 1.5rem 2rem 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .recipe-title {
+    font-size: 1.6rem;
+    margin: 0 0 0.25rem 0;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  .recipe-description {
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+    color: var(--secondary-color);
+    flex-grow: 0;
+  }
+
+  .section-header {
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 1.15rem;
+  }
+
+  ul.ingredients-list {
+    margin: 0 0 1rem 1.25rem;
+    padding: 0;
+    list-style-type: disc;
+  }
+
+  p.preparation {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+  }
+
+  button.toggle-ingredients {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.3s;
+  }
+
+  button.toggle-ingredients:hover,
+  button.toggle-ingredients:focus {
+    background: var(--accent-color);
+    outline: none;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  /* Responsive grid for tablets and desktops */
+  @media (min-width: 600px) {
+    main {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (min-width: 900px) {
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 3rem auto 4rem auto;
+    }
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 480px) {
+    .recipe-card {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Delicious Recipes</h1>
+</header>
+<main>
+  <article class="recipe-card" aria-label="Recipe for Spaghetti Carbonara">
+    <img src="./Responsive Recipe Card Page_files/photo-1589301760014-d929f3979dbc" alt="Spaghetti Carbonara" class="recipe-image">
+    <div class="recipe-content">
+      <h2 class="recipe-title">Spaghetti Carbonara</h2>
+      <p class="recipe-description">A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.</p>
+
+      <button class="toggle-ingredients" aria-expanded="false" aria-controls="ingredients1">Show Ingredients</button>
+      <ul class="ingredients-list" id="ingredients1" hidden="">
+        <li>200g spaghetti</li>
+        <li>100g pancetta</li>
+        <li>2 large eggs</li>
+        <li>50g pecorino cheese, grated</li>
+        <li>50g parmesan, grated</li>
+        <li>Freshly ground black pepper</li>
+        <li>Salt</li>
+      </ul>
+
+      <h3 class="section-header">Preparation:</h3>
+      <p class="preparation">
+        Boil the pasta. In a bowl, beat the eggs and mix with cheese. Fry pancetta until crisp.
+        Combine pasta with pancetta and remove from heat. Quickly mix in the egg and cheese mixture.
+        Serve immediately with extra cheese and black pepper.
+      </p>
+    </div>
+  </article>
+
+  <article class="recipe-card" aria-label="Recipe for Chicken Tacos">
+    <img src="./Responsive Recipe Card Page_files/photo-1600891964599-f61ba0e24092" alt="Chicken Tacos" class="recipe-image">
+    <div class="recipe-content">
+      <h2 class="recipe-title">Chicken Tacos</h2>
+      <p class="recipe-description">Flavorful Mexican chicken tacos with fresh salsa and creamy avocado.</p>
+
+      <button class="toggle-ingredients" aria-expanded="false" aria-controls="ingredients2">Show Ingredients</button>
+      <ul class="ingredients-list" id="ingredients2" hidden="">
+        <li>8 small corn tortillas</li>
+        <li>400g shredded cooked chicken</li>
+        <li>1 cup salsa</li>
+        <li>1 avocado, sliced</li>
+        <li>1/2 cup sour cream</li>
+        <li>Fresh cilantro</li>
+        <li>1 lime, cut into wedges</li>
+      </ul>
+
+      <h3 class="section-header">Preparation:</h3>
+      <p class="preparation">
+        Warm tortillas. Mix chicken with salsa. Assemble tacos by adding chicken mix, avocado slices,
+        sour cream, and cilantro. Serve with lime wedges.
+      </p>
+    </div>
+  </article>
+
+  <article class="recipe-card" aria-label="Recipe for Classic Pancakes">
+    <img src="./Responsive Recipe Card Page_files/photo-1551218808-94e220e084d2" alt="Classic Pancakes" class="recipe-image">
+    <div class="recipe-content">
+      <h2 class="recipe-title">Classic Pancakes</h2>
+      <p class="recipe-description">Fluffy and golden pancakes perfect for a weekend breakfast.</p>
+
+      <button class="toggle-ingredients" aria-expanded="false" aria-controls="ingredients3">Show Ingredients</button>
+      <ul class="ingredients-list" id="ingredients3" hidden="">
+        <li>1 1/2 cups all-purpose flour</li>
+        <li>3 1/2 tsp baking powder</li>
+        <li>1 tsp salt</li>
+        <li>1 tbsp sugar</li>
+        <li>1 1/4 cups milk</li>
+        <li>1 egg</li>
+        <li>3 tbsp melted butter</li>
+      </ul>
+
+      <h3 class="section-header">Preparation:</h3>
+      <p class="preparation">
+        Combine dry ingredients. Add milk, beaten egg, and melted butter; mix until smooth.
+        Heat a griddle or frying pan and pour batter to form pancakes. Cook until bubbles form,
+        flip and cook until golden. Serve warm with syrup or fruit.
+      </p>
+    </div>
+  </article>
+</main>
+<footer>
+  <p>© 2023 Delicious Recipes</p>
+</footer>
+<script>
+  document.querySelectorAll('.toggle-ingredients').forEach(button => {
+    button.addEventListener('click', function () {
+      const ingredientsList = this.nextElementSibling;
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        ingredientsList.hidden = true;
+        this.setAttribute('aria-expanded', 'false');
+        this.textContent = 'Show Ingredients';
+      } else {
+        ingredientsList.hidden = false;
+        this.setAttribute('aria-expanded', 'true');
+        this.textContent = 'Hide Ingredients';
+      }
+    });
+  });
+</script>
+
+
+
+</body></html>
